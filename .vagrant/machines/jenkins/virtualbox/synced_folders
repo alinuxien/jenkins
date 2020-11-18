@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/prestashop":{"type":"virtualbox","guestpath":"/home/vagrant/prestashop","hostpath":"/home/Ali/OCR/P8/prestashop","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/Ali/OCR/P8/VM-Jenkins","disabled":false,"__vagrantfile":true}}}
