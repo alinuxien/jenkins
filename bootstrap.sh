@@ -54,4 +54,8 @@ wget https://getcomposer.org/composer.phar
 mv composer.phar /usr/bin/composer
 chmod +x /usr/bin/composer
 
+echo "*****************************"
+echo "* [8]: INSTALLATION DE NPM  *"
+echo "*****************************"
+apt-get install -y npm 
 
