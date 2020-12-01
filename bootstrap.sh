@@ -53,6 +53,7 @@ systemctl restart apache2
 wget https://getcomposer.org/composer.phar
 mv composer.phar /usr/bin/composer
 chmod +x /usr/bin/composer
+apt-get install -y composer
 
 echo "**************************************"
 echo "* [8]: INSTALLATION DE NPM ET UNZIP  *"
