@@ -18,10 +18,10 @@ echo "* [3]: INSTALLATION DE VIM *"
 echo "****************************"
 apt-get install -y vim
 
-echo "*******************************"
-echo "* [4]: INSTALLATION DE DOCKER *"
-echo "*******************************"
-apt-get install -y apt-transport-https ca-certificates curl gnupg-agent docker-ce docker-ce-cli containerd.io
+echo "*************************************************"
+echo "* [4]: INSTALLATION DE DOCKER ET DOCKER-COMPOSE *"
+echo "*************************************************"
+apt-get install -y apt-transport-https ca-certificates curl gnupg-agent docker-ce docker-ce-cli containerd.io docker-compose
 usermod -aG docker vagrant
 
 echo "*************************************************"
