@@ -45,6 +45,12 @@ sed -i 's/post_max_size = 8M/post_max_size = 128M/g' /etc/php/7.4/apache2/php.in
 sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 128M/g' /etc/php/7.4/apache2/php.ini
 sed -i 's/;max_input_vars = 1000/max_input_vars = 5000/g' /etc/php/7.4/apache2/php.ini
 sed -i 's/memory_limit = 128M/memory_limit = 256M/g' /etc/php/7.4/apache2/php.ini
+sed -i 's/pm.max_children = 5/pm.max_children = 128/g' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's/pm.start_servers = 2/pm.start_servers = 32/g' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's/pm.min_spare_servers = 1/pm.min_spare_servers = 16/g' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's/pm.max_spare_servers = 3/pm.max_spare_servers = 32/g' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's/;pm.max_requests = 500/pm.max_requests = 1000/g' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's/StartServers\t*\s*2/StartServers                     8/g' /etc/apache2/mods-available/mpm_event.conf
 chown -R www-data:www-data /var/www/html/
 chmod -R 755 /var/www/html/
 a2enmod rewrite
