@@ -40,7 +40,7 @@ usermod -aG docker jenkins
 echo "*********************************************************"
 echo "* [7]: INSTALLATION DE APACHE, MYSQL, PHP, ET COMPOSER  *"
 echo "*********************************************************"
-apt-get install -y apache2 mysql-server php7.4 php7.4-bcmath php7.4-cli php7.4-curl php7.4-zip php7.4-sqlite3 php7.4-mysql php7.4-xml php7.4-mbstring php7.4-gd php-imagick php7.4-xsl php7.4-intl php-memcached
+apt-get install -y apache2 mysql-server php7.4 php-fpm php-cgi php7.4-bcmath php7.4-cli php7.4-curl php7.4-zip php7.4-sqlite3 php7.4-mysql php7.4-xml php7.4-mbstring php7.4-gd php-imagick php7.4-xsl php7.4-intl php-memcached
 sed -i 's/post_max_size = 8M/post_max_size = 128M/g' /etc/php/7.4/apache2/php.ini
 sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 128M/g' /etc/php/7.4/apache2/php.ini
 sed -i 's/;max_input_vars = 1000/max_input_vars = 5000/g' /etc/php/7.4/apache2/php.ini
@@ -48,6 +48,8 @@ sed -i 's/memory_limit = 128M/memory_limit = 256M/g' /etc/php/7.4/apache2/php.in
 chown -R www-data:www-data /var/www/html/
 chmod -R 755 /var/www/html/
 a2enmod rewrite
+a2enmod proxy_fcgi setenvif
+a2enconf php7.4-fpm
 source /etc/apache2/envvars
 systemctl restart apache2
 wget https://getcomposer.org/composer.phar
