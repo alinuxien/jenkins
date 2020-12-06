@@ -6,6 +6,7 @@ Vagrant.configure("2") do |config|
     jenkins.vm.network "forwarded_port", guest: 22, host: 2222, id: 'ssh'
     jenkins.vm.network "forwarded_port", guest: 8080, host: 8080
     jenkins.vm.network "forwarded_port", guest: 80, host: 8000
+    jenkins.vm.network "forwarded_port", guest: 8001, host: 8001
 # LA LIGNE CI-DESSOUS DOIT ETRE SUPPRIMEE / PERSONNALISEE
 #    jenkins.vm.synced_folder "../PrestaShop", "/home/vagrant/PrestaShop", type: "virtualbox"
 #    jenkins.vm.synced_folder "../presta-test", "/home/vagrant/presta-test", type: "virtualbox"
