@@ -30,9 +30,21 @@ echo "*************************************************"
 apt-get install -y tree
 apt-get clean -y
 
-echo "****************************************"
-echo "* [6]: INSTALLATION DE JAVA ET JENKINS *"
-echo "****************************************"
+echo "***************************************************************************************"
+echo "* [6]: INSTALLATION DE PYTHON, PIP, XVFB, SELENIUM, CHROME ET DRIVER, JAVA ET JENKINS *"
+echo "***************************************************************************************"
+apt-get install -y python3.8 python3-pip
+pip3 install selenium
+apt-get install -y xvfb
+Xvfb :1 -screen 5 1024x768x8 &
+export DISPLAY=:1.5
+sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+apt-get update
+apt-get install -y google-chrome-stable
+wget -q https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+cp chromedriver /usr/local/bin
 apt-get install -y openjdk-8-jre
 apt-get install -y jenkins
 usermod -aG docker jenkins
