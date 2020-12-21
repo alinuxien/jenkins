@@ -21,6 +21,10 @@ Vagrant.configure("2") do |config|
     end
     jenkins.vm.provision :shell, path: "bootstrap.sh"
 #    jenkins.vm.provision :shell, path: "auto_cd.sh"
+    jenkins.vm.provision "shell", run: "always", inline: <<-SHELL
+      Xvfb :1 -screen 5 1024x768x8 &
+      export DISPLAY=:1.5
+    SHELL
   end
 end
 
